@@ -1,3 +1,9 @@
+icingaweb2 (2.3.4+fix-1~debmon8+1~calibre9+1) calibre9; urgency=medium
+
+  * Backport to Calibre9.
+
+ -- Rémi Palancher <remi-externe.palancher@edf.fr>  Wed, 26 Oct 2016 09:22:49 +0200
+
 icingaweb2 (2.3.4+fix-1~debmon8+1) debmon-jessie; urgency=medium
 
   * Rebuild for debmon-jessie.
