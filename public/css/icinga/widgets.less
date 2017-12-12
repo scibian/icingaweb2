@@ -1,0 +1,209 @@
+/*! Icinga Web 2 | (c) 2014 Icinga Development Team | GPLv2+ */
+
+table.historycolorgrid {
+  font-size: 1.5em;
+}
+
+table.historycolorgrid th {
+  width: 1em;
+  height: 1em;
+  margin: 0.5em;
+  font-size: 0.55em;
+  font-weight: bold;
+}
+
+table.historycolorgrid td {
+  width: 1em;
+  height: 1em;
+  margin: 1em;
+}
+
+table.historycolorgrid td:hover {
+  opacity: 0.5;
+}
+
+table.historycolorgrid td.weekday {
+  font-size: 0.55em;
+  font-weight: bold;
+  width: 2.5em;
+  opacity: 1.0;
+}
+
+table.historycolorgrid a, table.historycolorgrid span {
+  .rounded-corners(0.2em);
+  margin: 0;
+  text-decoration: none;
+  display: block;
+  width: 1.1em;
+  height: 1.1em;
+}
+
+table.historycolorgrid a:hover {
+  text-decoration: none;
+}
+
+table.multiselect tr[href] td {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+#main div.filter {
+  form.editor {
+    input[type=text], select {
+      width: 12em;
+    }
+
+    ul.tree li.active {
+      background-color: #eee;
+    }
+
+    div.buttons {
+      float: right;
+    }
+  }
+}
+
+ul.tree select { /* ?? */
+  margin-bottom: 0.3em;
+  margin-left: 1em;
+}
+
+ul.tree {
+  padding: 0;
+  margin: 0;
+}
+
+ul.tree, ul.tree ul {
+  padding-left: 1.5em;
+}
+
+ul.tree ul {
+  padding-left: 1.5em;
+}
+
+ul.tree li {
+  margin: 0;
+  list-style-type: none;
+  position: relative;
+  padding: 0;
+}
+
+ul.tree li .handle {
+  background-image: url('../img/tree/tree-minus.gif');
+  background-repeat: no-repeat;
+  display: inline-block;
+  position: absolute;
+  width: 1em;
+  height: 2em;
+  left: -0.6em;
+  background-position: -3px 3px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+ul.tree li.collapsed > .handle {
+  background-image: url('../img/tree/tree-plus.gif');
+}
+
+ul.tree li.collapsed > ul {
+  display: none;
+}
+
+ul.tree li::before, ul.tree li::after {
+  content: '';
+  position: absolute;
+  right: auto;
+  left: -0.2em;
+  border-color: @gray-light;
+  border-style: dotted;
+  border-width: 0;
+}
+
+/* This is the left vertical line */
+ul.tree li::before {
+  border-left-width: 1px;
+  top: 0;
+  width: 1em;
+  height: 100%;
+  bottom: 1em;
+}
+
+/* This is the horizontal dash in front of each item */
+ul.tree li::after {
+  border-top-width: 1px;
+  top: 1em;
+  width: 1em;
+  height: 1em;
+}
+
+/* Stop left vertical line at "mid-height" after last nodes (at each level) */
+ul.tree li:last-child::before {
+  height: 1em;
+}
+
+/* No border for the root element - there must be only ONE root */
+ul.tree > li::before, ul.tree > li::after {
+  display: none;
+}
+
+/* No connector before (each) root element */
+ul.tree > ul > li::before, ul.tree > ul > li::after {
+	border: 0;
+}
+
+ul.tree li a {
+  display: inline-block;
+  padding-left: 1em;
+  line-height: 2em;
+  text-decoration: none;
+  color: @gray;
+  background-repeat: no-repeat;
+  background-position: 0.8em 0.4em;
+}
+
+ul.tree li a.error {
+  color: @color-critical-handled;
+}
+
+ul.tree li a:hover {
+  color: @text-color;
+  text-decoration: underline;
+}
+
+ul.tree li a.error:hover {
+  color: @color-critical;
+}
+
+/* Add hover effect to chart data */
+.chart-data:hover {
+  opacity: 0.85;
+}
+
+/* charts should grow as much as possible but never beyond the current viewport's size */
+.svg-container-responsive {
+  padding: 1.5em;
+  height: 80vh;
+}
+
+.tipsy .tipsy-inner {
+  // overwrite tooltip max width, we need them to grow bigger
+  font-family: @font-family;
+  font-size: @font-size-small;
+  max-width: 300px;
+  text-align: left;
+}
+
+.progress-label span {
+  font-size: 1.5em;
+  .animate(blink 1.4s infinite both);
+
+  &:nth-child(2) {
+    animation-delay: .2s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: .4s;
+  }
+}

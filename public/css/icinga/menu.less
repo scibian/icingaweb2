@@ -1,0 +1,200 @@
+/*! Icinga Web 2 | (c) 2014 Icinga Development Team | GPLv2+ */
+
+#menu [class^="icon-"],
+#menu [class*=" icon-"] {
+  &:before {
+    width: 1.5em;
+  }
+}
+
+@icon-width: 1.7em; // 1.5em width + 0.2em right margin
+
+#menu {
+  height: 100%;
+  overflow: auto;
+}
+
+#menu a {
+  &:focus {
+    color: @icinga-blue;
+    outline-offset: -0.25em;
+  }
+
+  &:hover {
+    color: @icinga-blue;
+    text-decoration: none;
+  }
+}
+
+#menu .active > a {
+  color: @icinga-blue;
+}
+
+#menu .nav-level-1 > .nav-item {
+  border-left: 5px solid transparent;
+  line-height: 2.167em; // 26 px
+
+  &.active {
+    > a > .badge {
+      display: none;
+    }
+
+    .nav-level-2 > li {
+      // Expand menu if active
+      display: block;
+    }
+
+    background-color: @body-bg-color;
+    border-color: @icinga-blue;
+  }
+
+  &.no-icon > a {
+    margin-left: @icon-width;
+  }
+
+  > a {
+    padding: 0.5em 0.5em; // 6px 6px
+  }
+
+  > a:active ~ .nav-level-2 > li {
+    display: block;
+  }
+}
+
+#menu .nav-level-2 > .nav-item {
+  // Collapse menu by default
+  display: none;
+  line-height: 1.833em; // 22px
+  margin-left: @icon-width;
+
+  > a {
+    font-size: @font-size-small;
+    padding: 0.364em 0.545em; // 4px 6px
+  }
+}
+
+.no-js #menu .nav-level-2 > .nav-item {
+  // Expand menu if JavaScript is disabled
+  display: block;
+}
+
+#menu img.icon {
+  line-height: 1;
+  margin: 0 0.2em;
+  width: 1em;
+}
+
+#menu .user-nav-item {
+  background-color: @gray-light;
+}
+
+#menu input.search {
+  background: transparent url('../img/icons/search.png') no-repeat 0.7em center;
+  background-size: 1em auto;
+  border: none;
+  border-left: 5px solid transparent;
+  line-height: 2.167em;
+  padding-left: @icon-width + 0.5em;
+  width: 100%;
+
+  &.active {
+    background-color: @body-bg-color;
+    border-color: @icinga-blue;
+  }
+}
+
+// Badge offset correction
+
+#menu > nav > .nav-level-1 > .badge-nav-item > a > .badge {
+  margin-top: 0.2em;
+}
+
+#menu .nav-level-2 > .badge-nav-item > a > .badge {
+  margin-top: 0.2em;
+}
+
+// Hovered menu
+
+#menu .nav-level-1 > .nav-item.hover {
+  position: relative;
+
+  &:before {
+    border: 0.5em solid rgba(0, 0, 0, 0);
+    border-right-color: @text-color;
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 30%;
+  }
+
+  > .nav-level-2 {
+    background-color: @text-color;
+    color: @text-color-inverted;
+    left: 100%;
+    padding: @vertical-padding 0;
+    position: absolute;
+    top: 0;
+    width: 14em;
+
+    > .nav-item {
+      display: block;
+      margin-left: 0.5em;
+
+      > a:hover {
+        color: @text-color-inverted;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  > a > .badge {
+    display: none;
+  }
+}
+
+#layout.hoveredmenu {
+  #main {
+   z-index: 2;
+  }
+
+  #sidebar {
+   z-index: 3;
+  }
+
+  #menu {
+    overflow: visible;
+  }
+}
+
+// Accessibility skip links
+
+.skip-links {
+  position: relative;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+      display: block;
+      a, button[type="submit"] {
+        background-color: @body-bg-color;
+        left: -999px;
+        padding: @vertical-padding @horizontal-padding;
+        position: absolute;
+        width: 100%;
+        &:focus {
+          left: 0;
+          outline: 1px dotted black;
+        }
+      }
+      button[type="submit"] {
+        text-align: left;
+      }
+    }
+  }
+}
+
+#sidebar.expanded {
+  bottom: 0 !important;
+  height: auto !important;
+}

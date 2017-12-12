@@ -1,0 +1,103 @@
+/*! Icinga Web 2 | (c) 2013 Icinga Development Team | GPLv2+ */
+
+// Login page styles
+
+#login {
+  #icinga-logo {
+    .fadein();
+  }
+
+  background-color: @icinga-blue;
+
+  .control-label {
+    color: @body-bg-color;
+    font-size: 1em;
+    line-height: @line-height;
+  }
+
+  .errors {
+    background-color: @color-critical;
+    color: @body-bg-color;
+    font-size: @font-size-small;
+    margin: 2em 0 0 0;
+
+    > li {
+      padding: 1em;
+    }
+  }
+
+  .control-group {
+    margin: 0 auto; // Center horizontally
+    width: 24em;
+  }
+
+  .control-label-group {
+    display: block;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+  }
+
+  input[type=password],
+  input[type=text] {
+    background-color: @gray-light; // IE8 fallback
+    background-color: rgba(255,255,255,0.2);
+    border: none;
+    border-bottom: solid 3px @body-bg-color;
+    color: @body-bg-color;
+    display: block;
+    height: 2.5em;
+    margin: 0;
+    transition: none;
+    width: 100%;
+
+    &:focus {
+      .rounded-corners(3px);
+      background-color: @body-bg-color;
+      border: none;
+      border-radius: 0;
+      color: @icinga-blue;
+      padding-bottom: 3px;
+    }
+  }
+
+  .form-controls {
+    margin-bottom: 2em;
+    margin-top: 2em;
+  }
+
+  input[type=submit] {
+    .button(@icinga-blue, @body-bg-color);
+    height: 2.5em;
+    margin: 0;
+    width: 100%;
+  }
+
+  .config-note {
+    color: white;
+    background-color: @color-critical;
+    margin: 0 auto 2em auto; // Center horizontally w/ bottom margin
+    max-width: 50%;
+    min-width: 24em;
+    padding: 1em;
+
+    a {
+      color: @text-color-inverted;
+      font-weight: bold;
+    }
+  }
+}
+
+#login-footer {
+  color: @body-bg-color;
+  font-size: @font-size-small;
+
+  a {
+    font-weight: @font-weight-bold;
+
+    // Social links
+    &:hover > i {
+      color: @text-color;
+    }
+  }
+}

@@ -1,0 +1,163 @@
+/*! Icinga Web 2 | (c) 2014 Icinga Development Team | GPLv2+ */
+
+html {
+  font-family: 'default-layout';
+}
+
+#layout {
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#header {
+  height: 4em;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#sidebar {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  top: 4em;
+  width: 12em;
+}
+
+#main {
+  bottom: 0;
+  left: 12em;
+  position: fixed;
+  right: 0;
+  top: 4em;
+}
+
+.iframe {
+  #header, #sidebar {
+    display: none;
+  }
+
+  #main {
+    left: 0;
+    top: 0;
+  }
+}
+
+#fileupload-frame-target {
+  display: none;
+}
+
+#responsive-debug {
+  font-size: 0.9em;
+  font-family: Courier new, monospace;
+  padding: 0.5em;
+  width: 25em;
+  color: white;
+  height: 10em;
+  display: none;
+  position: fixed;
+  bottom: 0.5em;
+  right: 2em;
+  overflow: hidden;
+  z-index: 1000;
+  background: #333;
+  border-radius: 0.5em;
+  opacity: 0.9;
+}
+
+#layout.minimal-layout #responsive-debug {
+  font-size: 0.6em;
+}
+
+#layout.poor-layout #responsive-debug {
+  font-size: 0.7em;
+}
+
+#layout.compact-layout #responsive-debug {
+  font-size: 0.8em;
+}
+
+#layout.wide-layout #responsive-debug {
+  font-size: 1em;
+}
+
+/** Fullscreen layout **/
+#layout.fullscreen-layout {
+  #header, #sidebar {
+    display: none;
+  }
+
+  .container .controls {
+    padding: 0;
+  }
+
+  .controls > ul.tabs {
+    margin-top: 0;
+    height: 1.5em;
+    font-size: 0.75em;
+    padding: 0.2em 0 0;
+  }
+
+  .controls > ul.tabs > li > a {
+    line-height: 1.5em;
+  }
+
+  #main {
+    left: 0;
+    top: 0 !important;
+  }
+}
+
+.container .controls.separated {
+    box-shadow: 0 3px 4px -4px rgba(0, 0, 0, 0.2);
+//  border-bottom: 1px solid @gray-lightest;
+    padding-bottom: @horizontal-padding / 2
+}
+
+.hbox {
+  display: inline-block;
+}
+
+.hbox-item {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.hbox-spacer {
+  display: inline-block;
+  vertical-align: top;
+  width: 2em;
+}
+
+/*
+ * Class to hide content from users but available for screen reader
+ * @todo(mh): Replace .audible class
+ */
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+// Hide non-javascript elements if javascript is enabled
+html.js *.no-js {
+  .sr-only;
+}
+
+// Hide javascript elements if javascript is disabled
+html.no-js *.js {
+  .sr-only;
+}

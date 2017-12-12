@@ -1,0 +1,58 @@
+<?php
+
+use Icinga\Web\Url;
+use Icinga\Web\Notification;
+use Icinga\Authentication\Auth;
+
+$moduleName = $this->layout()->moduleName;
+if ($moduleName !== 'default') {
+    $moduleClass = ' icinga-module module-' . $moduleName;
+} else {
+    $moduleClass = '';
+}
+
+$refresh = '';
+if ($this->layout()->autorefreshInterval) {
+    $refresh = ' data-icinga-refresh="' . $this->layout()->autorefreshInterval . '"';
+}
+
+?>
+<div id="header">
+  <div id="header-logo-container">
+    <?= $this->qlink(
+      '',
+      Auth::getInstance()->isAuthenticated() ? 'dashboard' : '',
+      null,
+      array(
+        'aria-hidden'       => 'true',
+        'data-base-target'  => '_main',
+        'id'                => 'header-logo'
+      )
+    ); ?>
+  </div>
+</div>
+<?php if (! $this->layout()->isIframe): ?>
+<div id="sidebar">
+  <?= $this->render('parts/navigation.phtml'); ?>
+</div>
+<?php endif ?>
+<div id="main" role="main">
+  <div id="col1" class="container<?= $moduleClass ?>"<?php if ($moduleName): ?> data-icinga-module="<?= $moduleName ?>" <?php endif ?> data-icinga-url="<?= Url::fromRequest()->without('renderLayout'); ?>"<?= $refresh; ?> style="display: block">
+    <?= $this->render('inline.phtml') ?>
+  </div>
+  <div id="col2" class="container">
+  </div>
+  <div id="col3" class="container">
+  </div>
+</div>
+<div id="footer">
+  <ul role="alert" id="notifications"><?php
+
+    $notifications = Notification::getInstance();
+    if ($notifications->hasMessages()) {
+        foreach ($notifications->popMessages() as $m) {
+            echo '<li class="' . $m->type . '">' . $this->escape($m->message) . '</li>';
+        }
+    }
+  ?></ul>
+</div>

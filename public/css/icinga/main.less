@@ -1,0 +1,221 @@
+/*! Icinga Web 2 | (c) 2014 Icinga Development Team | GPLv2+ */
+
+// Width for the name column--th--of name-value-table
+@name-value-table-name-width: 14em;
+
+.action-link {
+  color: @icinga-blue;
+}
+
+.error-message {
+  font-weight: @font-weight-bold;
+}
+
+.large-icon {
+  font-size: 200%;
+}
+
+.content-centered {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.icon-col {
+  text-align: center;
+  width: 1em;
+}
+
+.icon-strikethrough {
+  text-decoration: line-through;
+}
+
+.preformatted {
+  font-family: @font-family-fixed;
+  white-space: pre-wrap;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.user-avatar {
+  height: 16px;
+  width: 16px;
+}
+
+.v-center {
+  > * {
+    vertical-align: middle;
+  }
+}
+
+.section {
+  margin-bottom: 2em;
+}
+
+a:hover > .icon-cancel {
+  color: @color-critical;
+}
+
+// Link styles
+
+.button-link {
+  .action-link();
+  .rounded-corners(3px);
+
+  background: @gray-lighter;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+
+  &:hover {
+    background: @gray-lightest;
+    text-decoration: none;
+  }
+}
+
+// List styles
+
+.comment-list {
+  margin: 0;
+
+  > dt {
+    border-bottom: 1px solid @gray-lighter;
+    margin-bottom: 0.25em;
+
+    &:hover {
+      background-color: @gray-lightest;
+
+      > .remove-action {
+        visibility: visible;
+      }
+    }
+
+    > .remove-action {
+      visibility: hidden;
+    }
+  }
+
+  > dd {
+    margin: 0 0 1em 0;
+  }
+}
+
+.comment-time {
+  color: @text-color-light;
+  font-size: @font-size-small;
+}
+
+.name-value-list {
+  > dd {
+    // Reset default margin
+    margin: 0;
+  }
+
+  > dt {
+    color: @text-color-light;
+    font-size: @font-size-small;
+  }
+}
+
+// Table styles
+
+.common-table {
+  width: 100%;
+
+  td, th {
+    padding-top: 1em;
+  }
+
+  td {
+    padding-bottom: 1em;
+  }
+
+  th {
+    text-align: left;
+    padding-bottom: 0.5em;
+  }
+
+  thead {
+    border-bottom: 1px solid @gray-light;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid @gray-lightest;
+    border-left: 5px solid transparent;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  tr[href].active {
+    background-color: @tr-active-color;
+    border-left-color: @icinga-blue;
+  }
+
+  tr[href]:hover {
+    background-color: @tr-hover-color;
+    cursor: pointer;
+  }
+
+  caption {
+    border-top: 1px solid @gray-light;
+    caption-side: bottom;
+    font-style: italic;
+    text-align: right;
+  }
+}
+
+.name-value-table {
+  width: 100%;
+}
+
+.name-value-table > tbody > tr > th {
+  color: @text-color-light;
+  // Reset default font-weight
+  font-weight: normal;
+  padding-left: 0;
+  text-align: left;
+  vertical-align: top;
+  width: @name-value-table-name-width;
+}
+
+/* Styles for centering content of unknown width and height both horizontally and vertically
+ *
+ * Example markup:
+ * <div class="centered-ghost">
+ *     <div class="centered-content">
+ *         <p>I'm centered.</p>
+ *     </div>
+ * </div>
+ */
+
+.centered-content {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.centered-ghost {
+  height: 100%;
+  text-align: center;
+  letter-spacing: -1em; // Remove gap between content and ghost
+}
+
+.centered-ghost > * {
+  letter-spacing: normal;
+}
+
+.centered-ghost:after {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
