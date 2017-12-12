@@ -3,6 +3,11 @@ Upstream-Name: Icingaweb2
 Source: https://git.icinga.org/?p=icingaweb2.git;a=summary
 Homepage: https://www.icinga.org
 
+Files: debian/*
+Copyright: 2013-2014 Icinga Development Team
+           2017 Scibian Project <legal@scibian.org>
+License: GPL-2+
+
 Files: *
 Copyright: 2013-2014 Icinga Development Team
 License: GPL-2+

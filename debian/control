@@ -1,7 +1,7 @@
 Source: icingaweb2
 Section: admin
 Priority: extra
-Maintainer: Debian Nagios Maintainer Group <pkg-nagios-devel@lists.alioth.debian.org>
+Maintainer: Scibian Project <packaging@scibian.org>
 Uploaders:
  Markus Frosch <lazyfrosch@debian.org>
 Build-Depends:
@@ -11,8 +11,8 @@ Build-Depends:
  node-uglify | yui-compressor, node-source-map | yui-compressor
 Standards-Version: 3.9.8
 Homepage: https://www.icinga.org
-Vcs-Browser: https://anonscm.debian.org/cgit/pkg-nagios/pkg-icingaweb2.git
-Vcs-Git: https://anonscm.debian.org/git/pkg-nagios/pkg-icingaweb2.git
+Vcs-Browser: https://github.com/scibian/icingaweb2
+Vcs-Git: https://github.com/scibian/icingaweb2.git
 
 Package: icingaweb2
 Architecture: all
